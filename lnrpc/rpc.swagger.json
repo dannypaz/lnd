@@ -1287,6 +1287,19 @@
       ],
       "default": "OPEN_CHANNEL"
     },
+    "GetInfoResponseChain": {
+      "type": "object",
+      "properties": {
+        "chain": {
+          "type": "string",
+          "title": "/ The blockchain the node is on (eg bitcoin, litecoin)"
+        },
+        "network": {
+          "type": "string",
+          "title": "/ The network the node is on (eg regtest, testnet, mainnet)"
+        }
+      }
+    },
     "InvoiceInvoiceState": {
       "type": "string",
       "enum": [
@@ -1457,19 +1470,6 @@
       "default": "WITNESS_PUBKEY_HASH",
       "description": "- `p2wkh`: Pay to witness key hash (`WITNESS_PUBKEY_HASH` = 0)\n- `np2wkh`: Pay to nested witness key hash (`NESTED_PUBKEY_HASH` = 1)",
       "title": "*\n`AddressType` has to be one of:"
-    },
-    "lnrpcChain": {
-      "type": "object",
-      "properties": {
-        "chain": {
-          "type": "string",
-          "title": "/ The blockchain the node is on (eg bitcoin, litecoin)"
-        },
-        "network": {
-          "type": "string",
-          "title": "/ The network the node is on (eg regtest, testnet, mainnet)"
-        }
-      }
     },
     "lnrpcChanBackupSnapshot": {
       "type": "object",
@@ -2155,7 +2155,7 @@
         "chains": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/lnrpcChain"
+            "$ref": "#/definitions/GetInfoResponseChain"
           },
           "title": "/ A list of active chains the node is connected to"
         },

@@ -1970,7 +1970,7 @@ func (r *rpcServer) GetInfo(ctx context.Context,
 
 
 	for i, chain := range registeredChains.ActiveChains() {
-		activeChains[i] = &lnrpc.Chain{
+		activeChains[i] = &lnrpc.GetInfoResponse_Chain{
 			Chain:   chain.String(),
 			Network: network,
 		}
@@ -2010,7 +2010,7 @@ func (r *rpcServer) GetInfo(ctx context.Context,
 		Version:             build.Version(),
 	}
 
-	fmt.Printf("What the %v", dan)
+	fmt.Printf("What the %v", dan.Chains)
 
 	return dan, nil
 }

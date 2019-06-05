@@ -1282,15 +1282,14 @@ message ListPeersResponse {
 message GetInfoRequest {
 }
 
-message Chain {
-    /// The blockchain the node is on (eg bitcoin, litecoin)
-    string chain = 1 [json_name = "chain"];
-
-    /// The network the node is on (eg regtest, testnet, mainnet)
-    string network = 2 [json_name = "network"];
-}
-
 message GetInfoResponse {
+    message Chain {
+        /// The blockchain the node is on (eg bitcoin, litecoin)
+        string chain = 1 [json_name = "chain"];
+
+        /// The network the node is on (eg regtest, testnet, mainnet)
+        string network = 2 [json_name = "network"];
+    }
 
     /// The identity pubkey of the current node.
     string identity_pubkey = 1 [json_name = "identity_pubkey"];
