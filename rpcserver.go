@@ -1968,18 +1968,18 @@ func (r *rpcServer) GetInfo(ctx context.Context,
 	network := normalizeNetwork(activeNetParams.Name)
 	activeChains := make([]*lnrpc.Chain, registeredChains.NumActiveChains())
 
-	fmt.Printf("CHAINNNNSSSS %v", activeChains)
-	fmt.Printf("STUFFFFFF %v", registeredChains)
-	fmt.Printf("STUFFFFFF %v", registeredChains.NumActiveChains())
-	fmt.Printf("STUFFFFFF %v", registeredChains.PrimaryChain())
-	fmt.Printf("STUFFFFFF %v", registeredChains.ActiveChains())
 
 	for i, chain := range registeredChains.ActiveChains() {
+		fmt.Printf("STUFF", chain.string())
+		fmt.Printf("STUFF", network)
 		activeChains[i] = &lnrpc.Chain{
 			Chain:   chain.String(),
 			Network: network,
 		}
+		fmt.Printf("CHAINNNNSSSS %v", activeChains)
 	}
+
+	fmt.Printf("CHAINNNNSSSS %v", activeChains)
 
 	// Check if external IP addresses were provided to lnd and use them
 	// to set the URIs.
