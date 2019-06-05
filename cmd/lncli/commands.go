@@ -1840,12 +1840,19 @@ func getInfo(ctx *cli.Context) error {
 	defer cleanUp()
 
 	req := &lnrpc.GetInfoRequest{}
+
+
 	resp, err := client.GetInfo(ctxb, req)
 	if err != nil {
 		return err
 	}
 
+	fmt.Printf("STUFFFFFF %v", resp)
+
 	chains := make([]chain, len(resp.Chains))
+
+	fmt.Printf("CHAINNNNSSSS %v", resp.Chains)
+
 	for i, c := range resp.Chains {
 		chains[i] = chain{
 			Chain:   c.Chain,
