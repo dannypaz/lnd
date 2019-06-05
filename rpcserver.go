@@ -1989,8 +1989,10 @@ func (r *rpcServer) GetInfo(ctx context.Context,
 		uris[i] = fmt.Sprintf("%s@%s", encodedIDPub, addr.String())
 	}
 
+	fmt.Printf("WHAT THE %v", activeChains)
+
 	// TODO(roasbeef): add synced height n stuff
-	return &lnrpc.GetInfoResponse{
+	dan := &lnrpc.GetInfoResponse{
 		IdentityPubkey:      encodedIDPub,
 		NumPendingChannels:  nPendingChannels,
 		NumActiveChannels:   activeChannels,
@@ -2006,7 +2008,11 @@ func (r *rpcServer) GetInfo(ctx context.Context,
 		Color:               routing.EncodeHexColor(nodeAnn.RGBColor),
 		BestHeaderTimestamp: int64(bestHeaderTimestamp),
 		Version:             build.Version(),
-	}, nil
+	}
+
+	fmt.Printf("What the %v", dan)
+
+	return dan, nil
 }
 
 // ListPeers returns a verbose listing of all currently active peers.
