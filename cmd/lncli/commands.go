@@ -1847,11 +1847,7 @@ func getInfo(ctx *cli.Context) error {
 		return err
 	}
 
-	fmt.Printf("STUFFFFFF %v", resp)
-
 	chains := make([]chain, len(resp.Chains))
-
-	fmt.Printf("CHAINNNNSSSS %v", resp.Chains)
 
 	for i, c := range resp.Chains {
 		chains[i] = chain{
